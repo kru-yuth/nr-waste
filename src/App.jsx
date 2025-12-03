@@ -28,7 +28,11 @@ const ProtectedRoute = ({ children, requiredRole }) => {
 function App() {
   return (
     <Router>
-      <AuthProvider>
+      <AuthProvider config={{
+        domain: 'nr.ac.th',
+        requireWhitelist: true,
+        userCollection: 'users'
+      }}>
         <Layout>
           <Routes>
             <Route path="/" element={<Dashboard />} />
